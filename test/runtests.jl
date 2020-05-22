@@ -1,27 +1,3 @@
-using CITIfile: rdciti
-using Test
-
-s,f = rdciti("Wire_mesh_knit1_scan_th045deg_ph345deg.cit")
-@testset "MA-style file" begin
-    @test size(s) == (4,4,12)
-    @test size(f) == (12,)
-    @test abs(s[1,1,1]) ≈ 9.993692243725852E-01
-    @test rad2deg(angle(s[1,1,1])) ≈  1.776698273015162E+02
-    @test abs(s[1,1,end]) ≈ 9.869994561177106E-01
-    @test rad2deg(angle(s[1,1,end])) ≈ 1.517921770116529E+02
-    @test abs(s[1,3,3]) ≈ 3.261798828943794E-02
-    @test rad2deg(angle(s[1,3,3])) ≈ 8.669814811044907E+01
-    @test abs(s[3,1,3]) ≈ 3.263875888744300E-02
-    @test rad2deg(angle(s[3,1,3])) ≈ 8.703675893037459E+01
-    @test abs(s[end,end,end]) ≈ 8.073910702105189E-01
-    @test rad2deg(angle(s[end,end,end])) ≈ 1.474292363421648E+02
-end;
-
-s,f = rdciti("hfss_terret_inner_perp.cit")
-@testset "RI-style file" begin
-    @test size(s) == (2,2,13)
-    @test size(f) == (13,)
-    @test s[1,1,1] ≈ -0.07517356 - 0.2106189im
-    @test s[1,2,4] ≈ 0.9124461 - 0.3167198im
-    @test s[end,end,end] ≈ -0.1570225 - 0.3573307im
-end;
+using SafeTestsets
+@safetestset "MA Tests" begin include("MA_tests.jl") end
+@safetestset "RI Tests" begin include("RI_tests.jl") end
