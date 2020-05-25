@@ -10,13 +10,8 @@ Tools for reading (and eventually, perhaps, writing) CITI files. The [CITI file 
 
 ## Installation
 
-This package is not registered yet, but can be installed directly from this repo.
-From the Julia REPL or in a Jupyter cell, run
-
-```julia
-]activate .  # Optionally activate a project
-]add https://github.com/simonp0420/CITIfile.jl
-```
+The package is registered in the [`General`](https://github.com/JuliaRegistries/General) 
+registry and so can be installed at the REPL with `] add CITIfile`.
 
 ## Documentation
 [Click here](https://simonp0420.github.io/CITIfile.jl/stable)
