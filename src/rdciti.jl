@@ -59,7 +59,7 @@ function rdciti(fname)
             k = findfirst("SEG_LIST_BEGIN", line)
             if k != nothing # gobble up frequencies
                 line = readline(fid)  # Contains "SEG  f1  f2  Nf"
-                flims = map(x -> parse(Int,x),split(str[4:end]))
+                flims = map(x -> parse(Int64,x),split(line[4:end]))
                 f = range(flims[1]/1e9, flims[2]/1e9, length=flims[3])
                 break
             end
